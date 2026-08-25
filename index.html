@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Feedback Loop</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            The Feedback <span>Loop</span>
+        </div>
+
+        <div class="nav-links">
+
+            <button
+                class="nav-btn active"
+                data-page="home"
+            >
+                Home
+            </button>
+
+            <button
+                class="nav-btn"
+                data-page="feedback"
+            >
+                Feedback
+            </button>
+
+            <button
+                class="nav-btn"
+                data-page="growth"
+            >
+                Growth
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <!-- =========================
+             HOME
+        ========================= -->
+
+        <section
+            id="homePage"
+            class="page active"
+        >
+
+            <div class="hero">
+
+                <div>
+
+                    <h1>
+                        Notice.<br>
+                        Reflect.<br>
+                        Improve.
+                    </h1>
+
+                    <p>
+                        A simple place to capture what people
+                        tell you and turn it into something you
+                        can actually work on.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    id="addFeedbackBtn"
+                >
+                    + Add feedback
+                </button>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <div
+                        class="stat-number"
+                        id="totalFeedback"
+                    >
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        Things you've heard
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div
+                        class="stat-number"
+                        id="activeGrowth"
+                    >
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        Things you're working on
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div
+                        class="stat-number"
+                        id="improvedCount"
+                    >
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        Things getting better
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AREAS -->
+
+            <section class="section">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+                        Your areas
+                    </div>
+
+                </div>
+
+                <div
+                    class="areas"
+                    id="areas"
+                ></div>
+
+            </section>
+
+
+            <!-- CURRENT GROWTH -->
+
+            <section class="section">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+                        Currently working on
+                    </div>
+
+                    <button
+                        class="small-btn"
+                        id="viewGrowthBtn"
+                    >
+                        View all
+                    </button>
+
+                </div>
+
+                <div
+                    class="growth-list"
+                    id="homeGrowth"
+                ></div>
+
+            </section>
+
+
+            <!-- RECENT -->
+
+            <section class="section">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+                        A recent thought
+                    </div>
+
+                </div>
+
+                <div id="recentFeedback"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =========================
+             FEEDBACK
+        ========================= -->
+
+        <section
+            id="feedbackPage"
+            class="page"
+        >
+
+            <div class="hero">
+
+                <div>
+
+                    <h1>
+                        What I've heard.
+                    </h1>
+
+                    <p>
+                        Keep the things worth remembering.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    id="addFeedbackBtn2"
+                >
+                    + Add feedback
+                </button>
+
+            </div>
+
+
+            <div class="filters">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="All"
+                >
+                    All
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="Work"
+                >
+                    Work
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="Family"
+                >
+                    Family
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="Friends"
+                >
+                    Friends
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="Personal"
+                >
+                    Personal
+                </button>
+
+            </div>
+
+
+            <div
+                class="feedback-list"
+                id="feedbackList"
+            ></div>
+
+        </section>
+
+
+        <!-- =========================
+             GROWTH
+        ========================= -->
+
+        <section
+            id="growthPage"
+            class="page"
+        >
+
+            <div class="hero">
+
+                <div>
+
+                    <h1>
+                        Am I getting better?
+                    </h1>
+
+                    <p>
+                        Track the changes you're actually
+                        trying to make.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="growth-list"
+                id="growthList"
+            ></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                Add feedback
+            </h2>
+
+            <button
+                class="close"
+                id="closeModalBtn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="feedbackForm">
+
+            <input
+                type="hidden"
+                id="feedbackId"
+            >
+
+
+            <!-- PERSON -->
+
+            <div class="form-group">
+
+                <label for="person">
+                    Who was it from?
+                </label>
+
+                <input
+                    class="input"
+                    id="person"
+                    placeholder="e.g. Sarah"
+                    required
+                >
+
+            </div>
+
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+
+                <label>
+                    Where does this belong?
+                </label>
+
+                <div class="category-options">
+
+                    <button
+                        type="button"
+                        class="category-option selected"
+                        data-category="Work"
+                    >
+                        Work
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-option"
+                        data-category="Family"
+                    >
+                        Family
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-option"
+                        data-category="Friends"
+                    >
+                        Friends
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-option"
+                        data-category="Personal"
+                    >
+                        Personal
+                    </button>
+
+                </div>
+
+                <input
+                    type="hidden"
+                    id="category"
+                    value="Work"
+                >
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div class="form-group">
+
+                <label for="feedbackText">
+                    What did they say?
+                </label>
+
+                <textarea
+                    id="feedbackText"
+                    placeholder="Write it the way you remember it..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- ACTION -->
+
+            <div class="form-group">
+
+                <label for="action">
+                    What do you want to work on?
+                </label>
+
+                <textarea
+                    id="action"
+                    placeholder="Turn the feedback into something you can actually change..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="form-group">
+
+                <label for="progress">
+                    How are you doing with it?
+                </label>
+
+                <select id="progress">
+
+                    <option value="Just started">
+                        Just started
+                    </option>
+
+                    <option value="Working on it">
+                        Working on it
+                    </option>
+
+                    <option value="Getting better">
+                        Getting better
+                    </option>
+
+                    <option value="Improved">
+                        Improved
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    id="cancelModalBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    Save feedback
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
